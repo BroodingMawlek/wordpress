@@ -1,7 +1,7 @@
 Pre requisites
-Manually create wp_config_bucket S3 bucket and copy install_wp.sh to root.
+Manually create wp_config_bucket S3 bucket in eu-west2 region and copy install_wp.sh to root.
 
-Upload contents of AmazonCloudWatch-linux to SSM Paramater store create a parameter called AmazonCloudWatch-linux and copy the contents into its value. 
+Create a parameter called AmazonCloudWatch-linux in SSM Parameter store and copy the contents of AmazonCloudWatch-linux to the value   
 
 
 Status

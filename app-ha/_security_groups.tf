@@ -13,7 +13,8 @@ resource "aws_security_group" "alb_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+# -1 = all
+# allows traffic from all ports and all protocols to 2 x private subnets for wp server
   egress {
     from_port   = 0
     to_port     = 0

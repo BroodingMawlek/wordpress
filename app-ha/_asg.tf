@@ -106,18 +106,18 @@ resource "aws_cloudwatch_metric_alarm" "disk_alarm" {
 }
 
 //Lambda function
-resource "aws_lambda_function" "delete_alarms" {
-  s3_bucket     = "byoi-lambda-function"
-  s3_key        = "delete_alarms.zip"
-  function_name = "delete_alarms"
-  role          = aws_iam_role.lifecycle_role.arn
-  handler       = "invite_accounts_to_org.lambda_handler"
-  runtime = "python3.7"
-  timeout = "300"
-
-  environment {
-    variables = {
-      foo = "bar"
-    }
-  }
-}
+#resource "aws_lambda_function" "delete_alarms" {
+#  s3_bucket     = "byoi-lambda-function"
+#  s3_key        = "delete_alarms.zip"
+#  function_name = "delete_alarms"
+#  role          = aws_iam_role.lifecycle_role.arn
+#  handler       = "invite_accounts_to_org.lambda_handler"
+#  runtime = "python3.7"
+#  timeout = "300"
+#
+#  environment {
+#    variables = {
+#      foo = "bar"
+#    }
+#  }
+#}
