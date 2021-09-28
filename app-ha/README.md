@@ -24,7 +24,7 @@ Solved - rds-mysql is working but creating db in default vpc, need to change to 
 Solved - elb cert not found\
 Solved-  module.alb.target_group_arns is tuple with 1 element\
 Solved- Userdata configures apache and wordpress wp-cpnfig file\
-Problem db hostname needs to be updated before wp will work, workaround is to deploy code, get hostname, edit wp-config.php and re-deploy instances in asg.
+Solved  db hostname needs to be updated before wp will work, workaround is to deploy code, get hostname, edit wp-config.php and re-deploy instances in asg.
 
 #Improvement
 Make db hostname available as an output and automate deployment
