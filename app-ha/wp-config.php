@@ -29,7 +29,7 @@ define( 'DB_USER', 'user' );
 define( 'DB_PASSWORD', 'YourPwdShouldBeLongAndSecure!' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'demodb.cojwxv3pq60w.eu-west-2.rds.amazonaws.com' );
+define( 'DB_HOST', 'demodb.catnputg5b8x.eu-west-2.rds.amazonaws.com' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

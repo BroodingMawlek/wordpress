@@ -1,6 +1,5 @@
 module "alb" {
   source  = "../modules/alb"
-
   name = "my-alb"
 
   load_balancer_type = "application"
@@ -10,14 +9,13 @@ module "alb" {
 
   target_groups = [
     {
-      name_prefix      = "wp"
+# optional       name_prefix      = "wp"
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
     }
   ]
-
-
+# target group 0 attaches this listener to the above target group
   http_tcp_listeners = [
     {
       port               = 80
@@ -26,7 +24,7 @@ module "alb" {
     }
   ]
 
-  tags = {
-    Environment = "Prod"
-  }
+#  tags = {
+#    Environment = "Prod"
+#  }
 }

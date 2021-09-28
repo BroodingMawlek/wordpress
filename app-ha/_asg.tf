@@ -1,4 +1,4 @@
-//launch template
+#launch template
 resource "aws_launch_template" "wp" {
   name = "word_press"
 
@@ -9,10 +9,11 @@ resource "aws_launch_template" "wp" {
       volume_size = 20
     }
   }
+# can use reserved instance if available
   capacity_reservation_specification {
     capacity_reservation_preference = "open"
   }
-
+# type of burst cpu
   credit_specification {
     cpu_credits = "standard"
   }
@@ -50,7 +51,7 @@ resource "aws_launch_template" "wp" {
 
 }
 
-//asg
+#asg
 resource "aws_autoscaling_group" "wp_asg" {
   desired_capacity   = 2
   max_size           = 2
@@ -104,20 +105,3 @@ resource "aws_cloudwatch_metric_alarm" "disk_alarm" {
   alarm_description = "This metric monitors ec2 disk utilization"
   alarm_actions       = [aws_sns_topic.cw_alarms.arn]
 }
-
-//Lambda function
-#resource "aws_lambda_function" "delete_alarms" {
-#  s3_bucket     = "byoi-lambda-function"
-#  s3_key        = "delete_alarms.zip"
-#  function_name = "delete_alarms"
-#  role          = aws_iam_role.lifecycle_role.arn
-#  handler       = "invite_accounts_to_org.lambda_handler"
-#  runtime = "python3.7"
-#  timeout = "300"
-#
-#  environment {
-#    variables = {
-#      foo = "bar"
-#    }
-#  }
-#}

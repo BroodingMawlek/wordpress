@@ -12,7 +12,7 @@ service httpd start
 wget -O /usr/bin/latest.tar.gz https://wordpress.org/latest.tar.gz
 tar -xzf /usr/bin/latest.tar.gz --directory /usr/bin/
 cp -r /usr/bin/wordpress/* /var/www/html/
-aws s3 cp s3://wp-config-bucket-348638809043/wp-config.php /var/www/html/wp-config.php
+aws s3 cp s3://wp-config-bucket/wp-config.php /var/www/html/wp-config.php
 amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
 service httpd stop
 service httpd start
