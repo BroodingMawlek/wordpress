@@ -2,7 +2,7 @@
 # DB
 #####
 module "db" {
-  source = "../modules/rds"
+  source = "./modules/rds"
 
   identifier = "demodb"
   engine            = "mysql"

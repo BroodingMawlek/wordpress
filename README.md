@@ -30,11 +30,15 @@ Solved db hostname needs to be updated before wp will work, workaround is to dep
 Must manually subscribe to sns topic
 
 #Improvement
+Tag everything
 Make db hostname available as an output and automate deployment
 Name private subnet 1&2, wordpress & rds
 Chenge db name
 Remove db password from plain text
-understand _iam.tf
 Automate uploading of AmazonCloudWatch-linux to ssm
+Set required tf verion to 12.21
+Check all outputs are working
+tighten security groups
+rename alb from myalb
 
 

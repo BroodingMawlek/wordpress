@@ -16,9 +16,6 @@ output "vpc_public_subnets" {
   value       = module.vpc.public_subnets
 }
 
-
-
-
 output "wp_private_subnets" {
   description = "IDs of the Application VPC's private subnets"
   value       = module.vpc.private_subnets
@@ -38,9 +35,6 @@ output "instance_profile_name" {
   description = "Name of ec2 instance profile"
   value       = aws_iam_instance_profile.ec2_profile.name
 }
-
-
-
 
 #output "ec2_instance_public_ips" {
 #  description = "Public IP addresses of EC2 instances"

@@ -12,7 +12,7 @@ terraform {
 }
 
 module "vpc" {
-  source = "../modules/vpc"
+  source = "./modules/vpc"
 
   name = var.vpc_name
   cidr = var.vpc_cidr

@@ -1,5 +1,5 @@
 module "alb" {
-  source  = "../modules/alb"
+  source  = "./modules/alb"
   name = "my-alb"
 
   load_balancer_type = "application"
