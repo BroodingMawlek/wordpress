@@ -61,7 +61,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
     }
   }
 # Make sure bucket is correct install_wp.sh or wp-config.php will not copy
-  user_data = filebase64("${path.module}/install_wp.sh")
+  user_data = filebase64("${path.module}/files/install_wp.sh")
 
 }
 

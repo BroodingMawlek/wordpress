@@ -35,5 +35,6 @@ Name private subnet 1&2, wordpress & rds
 Chenge db name
 Remove db password from plain text
 understand _iam.tf
+Automate uploading of AmazonCloudWatch-linux to ssm
 
 
