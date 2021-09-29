@@ -1,5 +1,5 @@
 #Prerequisites
-Manually create wp_config_bucket S3 bucket in eu-west2 region and copy install_wp.sh to root.
+Manually create wp_config_bucket S3 bucket in eu-west2 region and copy wp-config.php to root.
 Bucket name in app-ha/install_wp.sh must be correct
 
 Create a parameter called AmazonCloudWatch-linux in SSM Parameter store and copy the contents of AmazonCloudWatch-linux to the value   
@@ -16,16 +16,24 @@ output wp_private_subnets {
 This solution takes around 20 mins to deploy the RDS database
 
 #Status
-app-ha is referencing modules and working\
-Remote state is set\
+Solved app-ha is referencing modules and working\
+Solved Remote state is set\
 Solved IAM role for delivering CW logs is not working - was not enabled\
-Solved How to create and additional private subnet - Duplicated Private AZ\
-Solved - rds-mysql is working but creating db in default vpc, need to change to use the correct vpc and subnets\
-Solved - elb cert not found\
-Solved-  module.alb.target_group_arns is tuple with 1 element\
-Solved- Userdata configures apache and wordpress wp-cpnfig file\
-Solved  db hostname needs to be updated before wp will work, workaround is to deploy code, get hostname, edit wp-config.php and re-deploy instances in asg.
+Solved How to create additional private subnet - Duplicated Private AZ\
+Solved rds-mysql is working but creating db in default vpc, need to change to use the correct vpc and subnets\
+Solved elb cert not found\
+Solved module.alb.target_group_arns is tuple with 1 element\
+Solved Userdata configures apache and wordpress wp-cpnfig file\
+Solved db hostname needs to be updated before wp will work, workaround is to deploy code, get hostname, edit wp-config.php and re-deploy instances in asg.
+
+#Manual steps
+Must manually subscribe to sns topic
 
 #Improvement
 Make db hostname available as an output and automate deployment
+Name private subnet 1&2, wordpress & rds
+Chenge db name
+Remove db password from plain text
+understand _iam.tf
+
 

@@ -1,5 +1,19 @@
+#Auto Scaling Group
+resource "aws_autoscaling_group" "wp_asg" {
+  desired_capacity   = 2
+  max_size           = 2
+  min_size           = 2
+  vpc_zone_identifier = module.vpc.private_subnets
+  target_group_arns  = module.alb.target_group_arns
+
+  launch_template {
+    id      = aws_launch_template.wordpress-launch-template.id
+    version = "$Latest"
+  }
+}
+
 #launch template
-resource "aws_launch_template" "wp" {
+resource "aws_launch_template" "wordpress-launch-template" {
   name = "word_press"
 
   block_device_mappings {
@@ -32,7 +46,7 @@ resource "aws_launch_template" "wp" {
     http_tokens                 = "required"
     http_put_response_hop_limit = 1
   }
-
+# If true, the launched EC2 instance will have detailed monitoring enabled, 1 minute period
   monitoring {
     enabled = true
   }
@@ -46,30 +60,17 @@ resource "aws_launch_template" "wp" {
       Name = "wordpress_app_layer"
     }
   }
-
+# Make sure bucket is correct install_wp.sh or wp-config.php will not copy
   user_data = filebase64("${path.module}/install_wp.sh")
 
 }
 
-#asg
-resource "aws_autoscaling_group" "wp_asg" {
-  desired_capacity   = 2
-  max_size           = 2
-  min_size           = 2
-  vpc_zone_identifier = module.vpc.private_subnets
-  target_group_arns  = module.alb.target_group_arns
-
-
-  launch_template {
-    id      = aws_launch_template.wp.id
-    version = "$Latest"
-  }
-}
-
+#sns topic
 resource "aws_sns_topic" "cw_alarms" {
   name = "CloudWatch_Alarms"
 }
 
+#cpu alarm
 resource "aws_cloudwatch_metric_alarm" "cpu_alarm" {
   alarm_name          = "cpu-over-80-percent"
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -88,6 +89,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_alarm" {
   alarm_actions       = [aws_sns_topic.cw_alarms.arn]
 }
 
+#disk alarm
 resource "aws_cloudwatch_metric_alarm" "disk_alarm" {
   alarm_name          = "disk-over-80-percent"
   comparison_operator = "GreaterThanOrEqualToThreshold"

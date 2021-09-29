@@ -12,6 +12,7 @@ module "db" {
   storage_encrypted = false
 
   name     = "demodb"
+#These must be stored more securely
   username = "user"
   password = "YourPwdShouldBeLongAndSecure!"
   port     = "3306"
