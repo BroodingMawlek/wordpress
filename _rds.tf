@@ -1,20 +1,32 @@
 #####
 # DB
 #####
+data "aws_secretsmanager_secret_version" "creds" {
+  # Fill in the name you gave to your secret
+  secret_id = "db-creds"
+}
+
+locals {
+  db_creds = jsondecode(
+    data.aws_secretsmanager_secret_version.creds.secret_string
+  )
+}
+
 module "db" {
   source = "./modules/rds"
-
-  identifier = "demodb"
+# RDS instance name
+  identifier = "wp-rds"
   engine            = "mysql"
   engine_version    = "5.7.19"
   instance_class    = "db.t3.micro"
   allocated_storage = 5
   storage_encrypted = false
-
-  name     = "demodb"
-#These must be stored more securely
-  username = "user"
-  password = "YourPwdShouldBeLongAndSecure!"
+# db name in instance (no special characters)
+  name     = "wpdb"
+# Username for the master DB user.
+  username = local.db_creds.username
+# Password for the master DB user
+  password = local.db_creds.password
   port     = "3306"
 
   vpc_security_group_ids = [aws_security_group.rds_sg.id]

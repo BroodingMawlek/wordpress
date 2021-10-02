@@ -32,13 +32,22 @@ Must manually subscribe to sns topic
 #Improvement
 Tag everything
 Make db hostname available as an output and automate deployment
-Name private subnet 1&2, wordpress & rds
-Chenge db name
-Remove db password from plain text
 Automate uploading of AmazonCloudWatch-linux to ssm
-Set required tf verion to 12.21
-Check all outputs are working
 tighten security groups
-rename alb from myalb
+Ensure variables are used where possible
+Name private subnet 1&2, wordpress & rds
+understand IAM - resource "aws_iam_policy" "lifecycle_policy" {
+
+add s3 read permissions to ec2 role
+
+
+Remove db password from plain text
+fix - Error establishing a database connection
+# db name in instance (no special characters)
+  name     = "wpdb"
+  username = local.wp-db-admin.username
+# sets db password
+  password = local.wp-db-admin.password
+
 
 

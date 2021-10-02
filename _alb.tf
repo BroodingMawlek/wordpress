@@ -1,6 +1,6 @@
 module "alb" {
   source  = "./modules/alb"
-  name = "my-alb"
+  name = "wp-alb"
 
   load_balancer_type = "application"
   vpc_id             = module.vpc.vpc_id

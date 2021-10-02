@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'demodb' );
+define( 'DB_NAME', 'wp-rds' );
 
 /** MySQL database username */
-define( 'DB_USER', 'user' );
+define( 'DB_USER', 'bob' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'YourPwdShouldBeLongAndSecure!' );
+define( 'DB_PASSWORD', 'HvVAQ18IaRT6' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'demodb.catnputg5b8x.eu-west-2.rds.amazonaws.com' );

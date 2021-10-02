@@ -1,16 +1,3 @@
-# Terraform configuration
-provider "aws" {
-  region = var.region
-}
-
-terraform {
-  backend "s3" {
-    bucket = "state-byoi--822101501359"
-    key    = "terraform-remote-state"
-    region = "eu-west-2"
-  }
-}
-
 module "vpc" {
   source = "./modules/vpc"
 
