@@ -1,16 +1,16 @@
 #####
 # DB
 #####
-data "aws_secretsmanager_secret_version" "creds" {
-  # Fill in the name you gave to your secret
-  secret_id = "db-creds"
-}
-
-locals {
-  db_creds = jsondecode(
-    data.aws_secretsmanager_secret_version.creds.secret_string
-  )
-}
+#data "aws_secretsmanager_secret_version" "creds" {
+#  # Fill in the name you gave to your secret
+#  secret_id = "db-creds"
+#}
+#
+#locals {
+#  db_creds = jsondecode(
+#    data.aws_secretsmanager_secret_version.creds.secret_string
+#  )
+#}
 
 module "db" {
   source = "./modules/rds"
@@ -24,9 +24,11 @@ module "db" {
 # db name in instance (no special characters)
   name     = "wpdb"
 # Username for the master DB user.
-  username = local.db_creds.username
+#  username = local.db_creds.username
+  username = "bob"
 # Password for the master DB user
-  password = local.db_creds.password
+#  password = local.db_creds.password
+  password = "HvVAQ18IaRT6"
   port     = "3306"
 
   vpc_security_group_ids = [aws_security_group.rds_sg.id]

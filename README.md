@@ -37,17 +37,11 @@ tighten security groups
 Ensure variables are used where possible
 Name private subnet 1&2, wordpress & rds
 understand IAM - resource "aws_iam_policy" "lifecycle_policy" {
-
-add s3 read permissions to ec2 role
+what does this do "amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"
 
 
 Remove db password from plain text
-fix - Error establishing a database connection
-# db name in instance (no special characters)
-  name     = "wpdb"
-  username = local.wp-db-admin.username
-# sets db password
-  password = local.wp-db-admin.password
+
 
 
 
