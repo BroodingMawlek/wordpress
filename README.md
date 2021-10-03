@@ -23,9 +23,10 @@ This solution takes around 20 mins to deploy the RDS database
 Must manually subscribe to sns topic
 
 #Improvement
+#Done
+Done - Set RDS username via AWS Secrets Manager (SSM) rather than plain text.
 # Working on
-Set RDS username via AWS Secrets Manager (SSM) rather than plain text.
-Must also configure wp-congig.php to use AWS SSM
+edit - install_wp_sh to include env variables etc
 
 ##Backlog
 Tag everything

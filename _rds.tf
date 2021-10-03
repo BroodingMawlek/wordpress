@@ -20,9 +20,9 @@ module "db" {
   storage_encrypted = false
 # db name in instance (no special characters)
   name     = "wpdb"
-# Username for the master DB user.
+# Username for the master DB user, red is ok
   username = local.db_creds.username
-# Password for the master DB user
+# Password for the master DB user, red is ok
   password = local.db_creds.password
   port     = "3306"
 

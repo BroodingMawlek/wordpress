@@ -39,7 +39,11 @@ resource "aws_iam_role_policy_attachment" "attach-s3-policy" {
   role       = aws_iam_role.ec2_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
 }
-
+# Policy Attachment
+resource "aws_iam_role_policy_attachment" "attach-secrets-manager-policy" {
+  role       = aws_iam_role.ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+}
 
 
 ##Lifecycle role not needed - was used to delete alarms

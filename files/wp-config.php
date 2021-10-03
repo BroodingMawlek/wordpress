@@ -1,5 +1,16 @@
 <?php
-/** v.03
+if(file_exists(__DIR__ . '/../vendor/autoload.php')) {
+require_once __DIR__ . '/../vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../');
+$dotenv->load();
+}
+if(file_exists(dirname(__DIR__.'/../') . '/../vendor/autoload.php')) {
+require_once dirname(__DIR__.'/../') . '/../vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../');
+$dotenv->load();
+}
+
+/** v.04
  * The base configuration for WordPress
  *
  * The wp-config.php creation script uses this file during the
@@ -23,10 +34,10 @@
 define( 'DB_NAME', 'wpdb' );
 
 /** MySQL database username */
-define( 'DB_USER', 'bob' );
+define( 'DB_USER', getenv('username'));
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'HvVAQ18IaRT6' );
+define( 'DB_PASSWORD', getenv('password'));
 
 /** MySQL hostname */
 define( 'DB_HOST', 'wp-rds.catnputg5b8x.eu-west-2.rds.amazonaws.com' );
