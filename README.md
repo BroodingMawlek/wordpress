@@ -28,6 +28,8 @@ Done - Set RDS username via AWS Secrets Manager (SSM) rather than plain text.
 # Working on
 edit - install_wp_sh to include env variables etc
 
+Currently wp-config.php is configured to use env variables but the user data is not
+
 ##Backlog
 Tag everything
 Make db hostname available as an output and automate deployment
@@ -39,7 +41,7 @@ understand IAM - resource "aws_iam_policy" "lifecycle_policy" {
 what does this do "amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"
 
 
-Remove db password from plain text
+
 
 
 

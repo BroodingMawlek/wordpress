@@ -1,15 +1,4 @@
 <?php
-if(file_exists(__DIR__ . '/vendor/autoload.php')) {
-require_once __DIR__ . '/vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::Dotenv::createUnsafeImmutable(__DIR__);
-$dotenv->load();
-}
-if(file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
-require_once dirname(__DIR__) . '/vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::Dotenv::createUnsafeImmutable(__DIR__);
-$dotenv->load();
-}
-
 /** v.04
  * The base configuration for WordPress
  *
@@ -34,10 +23,10 @@ $dotenv->load();
 define( 'DB_NAME', 'wpdb' );
 
 /** MySQL database username */
-define( 'DB_USER', getenv('username'));
+define( 'DB_USER', 'bob' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', getenv('password'));
+define( 'DB_PASSWORD', 'HvVAQ18IaRT6' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'wp-rds.catnputg5b8x.eu-west-2.rds.amazonaws.com' );
