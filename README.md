@@ -4,7 +4,10 @@ Bucket name in app-ha/install_wp.sh must be correct
 
 Create a parameter called AmazonCloudWatch-linux in SSM Parameter store and copy the contents of AmazonCloudWatch-linux to the value   
 
-#Notes
+#Notes on Wordpress
+This code will deploy Wordpress create and RDS MySQL database and configure wp-config.php. Wordpress will then need configuring by going to the Load Balancer dns name and entering details in the welcome page.
+
+#Notes on Code
 Outputs are specified in the module and in the code e.g.
 app-ha/outputs.tf
 
@@ -15,21 +18,16 @@ output wp_private_subnets {
 #Deployment time
 This solution takes around 20 mins to deploy the RDS database
 
-#Status
-Solved app-ha is referencing modules and working\
-Solved Remote state is set\
-Solved IAM role for delivering CW logs is not working - was not enabled\
-Solved How to create additional private subnet - Duplicated Private AZ\
-Solved rds-mysql is working but creating db in default vpc, need to change to use the correct vpc and subnets\
-Solved elb cert not found\
-Solved module.alb.target_group_arns is tuple with 1 element\
-Solved Userdata configures apache and wordpress wp-cpnfig file\
-Solved db hostname needs to be updated before wp will work, workaround is to deploy code, get hostname, edit wp-config.php and re-deploy instances in asg.
 
 #Manual steps
 Must manually subscribe to sns topic
 
 #Improvement
+# Working on
+Set RDS username via AWS Secrets Manager (SSM) rather than plain text.
+Must also configure wp-congig.php to use AWS SSM
+
+##Backlog
 Tag everything
 Make db hostname available as an output and automate deployment
 Automate uploading of AmazonCloudWatch-linux to ssm
