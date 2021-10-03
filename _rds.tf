@@ -1,6 +1,3 @@
-#####
-# DB
-#####
 data "aws_secretsmanager_secret_version" "creds" {
   # Fill in the name you gave to your secret
   secret_id = "db-creds"
@@ -25,10 +22,8 @@ module "db" {
   name     = "wpdb"
 # Username for the master DB user.
   username = local.db_creds.username
-#  username = "bob"
 # Password for the master DB user
   password = local.db_creds.password
-#  password = "HvVAQ18IaRT6"
   port     = "3306"
 
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
