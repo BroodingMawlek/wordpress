@@ -1,12 +1,13 @@
 <?php
+
 if(file_exists(__DIR__ . '/vendor/autoload.php')) {
 require_once __DIR__ . '/vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::Dotenv::createUnsafeImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 }
 if(file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
 require_once dirname(__DIR__) . '/vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::Dotenv::createUnsafeImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 }
 
@@ -34,6 +35,7 @@ $dotenv->load();
 define( 'DB_NAME', 'wpdb' );
 
 /** MySQL database username */
+//define( 'DB_USER', 'bob' );
 define( 'DB_USER', getenv('username'));
 
 /** MySQL database password */
@@ -65,7 +67,7 @@ define('NONCE_KEY',        'xmQ?DLVH.]Ug/d+X%IJghb;:-V*|~Y 0=!i`CEkg8Vsf3Oa,68#|
 define('AUTH_SALT',        '=G[frfE6wFtJ3R8aHt-(>10}!2gY{!LQ6(v0E3_^B2AR|dXX9YxwYcsjZ.=|ojvM');
 define('SECURE_AUTH_SALT', '<?-,@M39-?/3*zA9x|H;dXvNp@Mj3|LMG]=}B=T]&_)KDu%@KK!31ft6hpjx3*4k');
 define('LOGGED_IN_SALT',   'n*NbW2:*Ej]N&?1),~fw9yd>;lX%ph5*Wj<Ziv2~]d&fF:RIBUT0:K>tO!ZY57h2');
-define('NONCE_SALT',       'ilz+ew8~m]B.,5@wiVGo/JAgXtFpz7PJv$yeT:yG %T:s,hq^}8Lg2W:f0vW9-<_'); 
+define('NONCE_SALT',       'ilz+ew8~m]B.,5@wiVGo/JAgXtFpz7PJv$yeT:yG %T:s,hq^}8Lg2W:f0vW9-<_');
 
 /**
  * For information on other constants that can be used for debugging,
@@ -73,15 +75,19 @@ define('NONCE_SALT',       'ilz+ew8~m]B.,5@wiVGo/JAgXtFpz7PJv$yeT:yG %T:s,hq^}8L
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
 
 $table_prefix = 'wp_';
+
+define('WP_DEBUG', true);
+define( 'WP_DEBUG_LOG', '/var/www/wp-errors.log' );
+define('WP_DEBUG_DISPLAY', false);
+
 
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+        define( 'ABSPATH', __DIR__ . '/' );
 }
 
 /** Sets up WordPress vars and included files. */
