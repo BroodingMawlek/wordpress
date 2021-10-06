@@ -32,17 +32,15 @@ $dotenv->load();
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', getenv('dbname'))
+define( 'DB_NAME', getenv('dbname'));
 
 /** MySQL database username */
-//define( 'DB_USER', 'bob' );
 define( 'DB_USER', getenv('username'));
 
 /** MySQL database password */
 define( 'DB_PASSWORD', getenv('password'));
 
 /** MySQL hostname */
-//define( 'DB_HOST', 'wp-rds.catnputg5b8x.eu-west-2.rds.amazonaws.com' );
 define( 'DB_HOST', getenv('host'));
 
 /** Database Charset to use in creating database tables. */
@@ -60,15 +58,6 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-
-// define('AUTH_KEY',         '4{;hwgWU;h?wC8lqV@{>i1{LRa.P*0sN t`M/sc}K/6J |Y]t^hwflM6qCBK}?fJ');
-// define('SECURE_AUTH_KEY',  '~QJ^r@g9<q0fgYT2>dVMnb|MZDj}wxR`[F;Fjm-L X/,Oa?q]R_zuP>vR|u+M<.#');
-// define('LOGGED_IN_KEY',    '4H]e!SV;{`1h}!ml>AhEuzttO|%!L2)w47wWhVqYhx1Sla<%<|vSnY/f+BRSO3#6');
-// define('NONCE_KEY',        'xmQ?DLVH.]Ug/d+X%IJghb;:-V*|~Y 0=!i`CEkg8Vsf3Oa,68#|N;PDyirL]-#6');
-// define('AUTH_SALT',        '=G[frfE6wFtJ3R8aHt-(>10}!2gY{!LQ6(v0E3_^B2AR|dXX9YxwYcsjZ.=|ojvM');
-// define('SECURE_AUTH_SALT', '<?-,@M39-?/3*zA9x|H;dXvNp@Mj3|LMG]=}B=T]&_)KDu%@KK!31ft6hpjx3*4k');
-// define('LOGGED_IN_SALT',   'n*NbW2:*Ej]N&?1),~fw9yd>;lX%ph5*Wj<Ziv2~]d&fF:RIBUT0:K>tO!ZY57h2');
-// define('NONCE_SALT',       'ilz+ew8~m]B.,5@wiVGo/JAgXtFpz7PJv$yeT:yG %T:s,hq^}8Lg2W:f0vW9-<_');
 
 define( 'AUTH_KEY',         getenv('AUTH_KEY') );
 define( 'SECURE_AUTH_KEY',  getenv('SECURE_AUTH_KEY') );
