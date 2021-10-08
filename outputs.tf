@@ -1,16 +1,10 @@
-# Output variable definitions
-
-output "vpc_id" {
-  description = "ID of project VPC"
-  value       = module.vpc.vpc_id
-}
-
+# rds outputs
 output "this_db_instance_endpoint" {
   description = "The connection endpoint"
   value       = module.db.this_db_instance_endpoint
 
 }
-
+# vpc outputs
 output "vpc_public_subnets" {
   description = "IDs of the VPC's public subnets"
   value       = module.vpc.public_subnets
@@ -26,15 +20,27 @@ output "vpc_private_subnets_2" {
   value       = module.vpc.private_subnets_2
 }
 
+output "vpc_id" {
+  description = "ID of project VPC"
+  value       = module.vpc.vpc_id
+}
+
+# alb outputs
+
+output "lb_dns_name" {
+  description = "The DNS name of the load balancer."
+  value       = module.alb.this_lb_dns_name
+}
 output "target_group_arns" {
   description = "ARNs of the target groups. Useful for passing to your Auto Scaling group."
   value       = module.alb.target_group_arns
 }
-
+# iam outputs
 output "instance_profile_name" {
   description = "Name of ec2 instance profile"
   value       = aws_iam_instance_profile.ec2_profile.name
 }
+
 
 #output "ec2_instance_public_ips" {
 #  description = "Public IP addresses of EC2 instances"

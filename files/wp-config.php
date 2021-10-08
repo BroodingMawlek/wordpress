@@ -1,5 +1,9 @@
 <?php
 
+/** The following block is used to load variables from /var/www/.env
+ * https://www.rayheffer.com/aws-secrets-manager-for-wordpress-configuration/
+ */
+
 if(file_exists(__DIR__ . '/vendor/autoload.php')) {
 require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -30,8 +34,10 @@ $dotenv->load();
  * @package WordPress
  */
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
+/** MySQL settings - You can get this into from your web host ** //
+** The name of the database for WordPress
+** All secrets are loaded from /var/www/.env using the top code block */
+
 define( 'DB_NAME', getenv('dbname'));
 
 /** MySQL database username */
