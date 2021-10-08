@@ -19,7 +19,7 @@ module "db" {
   allocated_storage = 5
   storage_encrypted = false
 # db name in instance (no special characters)
-  name     = "wpdb"
+  name = local.db_creds.dbname
 # Username for the master DB user, red is ok
   username = local.db_creds.username
 # Password for the master DB user, red is ok
@@ -53,7 +53,7 @@ module "db" {
   major_engine_version = "5.7"
 
   # Snapshot name upon DB deletion
-  final_snapshot_identifier = "demodb"
+  final_snapshot_identifier = "wp-db-final-snap"
 
   # Database Deletion Protection
   deletion_protection = false
