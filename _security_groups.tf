@@ -37,7 +37,7 @@ resource "aws_security_group" "asg_sg" {
     protocol    = "tcp"
     security_groups = [aws_security_group.alb_sg.id]
   }
-
+# can this be locked down
   egress {
     from_port   = 0
     to_port     = 0
