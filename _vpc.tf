@@ -6,7 +6,7 @@ module "vpc" {
 
   azs               = var.vpc_azs
   private_subnets   = var.wp_private_subnets
-  private_subnets_2 = var.vpc_private_subnets_2
+  private_subnets_2 = var.wp_db_private_subnets
   public_subnets    = var.vpc_public_subnets
 
   enable_nat_gateway = var.vpc_enable_nat_gateway
