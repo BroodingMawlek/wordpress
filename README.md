@@ -1,6 +1,4 @@
 #Prerequisites
-Manually create wp_config_bucket S3 bucket in eu-west2 region and copy wp-config.php to root.
-Bucket name in app-ha/install_wp.sh must be correct
 
 RDS endpoint name mus be known before deployment, deploy the solution once and note the name.
 Add the endpoint value to Secrets Manager then redeploy (see improvements)
@@ -28,6 +26,7 @@ NONCE_SALT = Create your own salt values, no special characters
 Create a parameter called AmazonCloudWatch-linux in SSM Parameter store and copy the contents of AmazonCloudWatch-linux to the value   
 
 #Notes on Wordpress
+wp-config.php is copied from Github using wget
 This code will deploy Wordpress create and RDS MySQL database and configure wp-config.php. 
 First time - Wordpress will then configuring by going to the Load Balancer dns name and entering details in the welcome page, after this the setup is written to the db and so persists.
 
@@ -36,8 +35,7 @@ Secrets have been managed using code from this site, secrets must be set in Secr
 https://www.rayheffer.com/aws-secrets-manager-for-wordpress-configuration/
 
 #Deployment time
-This solution takes around 20 mins to deploy the RDS database
-
+This solution takes around 10 mins to deploy the RDS database
 
 #Manual steps
 Must manually subscribe to sns topic
@@ -48,10 +46,9 @@ Add rds endpoint to secret manager or automate in some other way for wp-config.p
 # Working on
 
 ##Backlog
-Tag everything
-tighten security groups
-Ensure variables are used where possible
-Automate uploading of AmazonCloudWatch-linux to ssm
+Tag everything\
+tighten security groups\
+Ensure variables are used where possible\
 
 
 
