@@ -1,7 +1,7 @@
 #Prerequisites
 
 RDS endpoint name mus be known before deployment, deploy the solution once and note the name.
-Add the endpoint value to Secrets Manager then redeploy (see improvements)
+Add the endpoint value to Secrets Manager then redeploy (see improvements).
 
 Set Secrets in AWS Secrets Manager
 
