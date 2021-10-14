@@ -41,11 +41,8 @@ This solution takes around 10 mins to deploy the RDS database
 Must manually subscribe to sns topic
 
 #Improvement
-Add rds endpoint to secret manager or automate in some other way for wp-config.php
+Add rds endpoint to secret manager or automate in some other way. We have a chicken and egg situation where the endpoint name is needed for wp-config.php, but we do not have it until the RDS instance is deployed.
 
-# Working on
 
 ##Backlog
-Ensure variables are used where possible\
-
 tighten asg security groups
