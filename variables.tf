@@ -58,12 +58,12 @@ variable "vpc_enable_nat_gateway" {
   default = true
 }
 
-variable "vpc_tags" {
+variable "project_tags" {
   description = "Tags to apply to resources created by VPC module"
   type        = map(string)
   default     = {
-    Terraform   = "true"
-    Environment = "dev"
+      Project = "Word Press"
+  Environment = "Dev"
   }
 }
 

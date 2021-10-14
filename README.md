@@ -46,10 +46,6 @@ Add rds endpoint to secret manager or automate in some other way for wp-config.p
 # Working on
 
 ##Backlog
-Tag everything\
-tighten asg security groups
 Ensure variables are used where possible\
 
-
-
-
+tighten asg security groups

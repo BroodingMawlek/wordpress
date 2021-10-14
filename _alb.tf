@@ -24,7 +24,5 @@ module "alb" {
     }
   ]
 
-#  tags = {
-#    Environment = "Prod"
-#  }
+    tags = var.project_tags
 }

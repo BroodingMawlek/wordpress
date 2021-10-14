@@ -2,11 +2,13 @@
 resource "aws_iam_instance_profile" "ec2_profile" {
   name       = "ec2_profile_byoi"
   role       = aws_iam_role.ec2_role.name
+  tags       = var.project_tags
 }
 
 # Role
 resource "aws_iam_role" "ec2_role" {
   name = "ec2_role_byoi"
+  tags = var.project_tags
 
 assume_role_policy = <<EOF
 {

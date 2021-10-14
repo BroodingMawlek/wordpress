@@ -5,6 +5,8 @@ resource "aws_security_group" "alb_sg" {
   name        = "alb_sg"
   description = "alb to wp private subnets"
   vpc_id      = module.vpc.vpc_id
+         tags = var.project_tags
+
 
   ingress {
     description = "http from internet"
@@ -15,6 +17,7 @@ resource "aws_security_group" "alb_sg" {
   }
 
   egress {
+    description = "all traffic to wp private subnets"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
@@ -29,9 +32,11 @@ resource "aws_security_group" "asg_sg" {
   name        = "asg_sg"
   description = "http to alb_sg"
   vpc_id      = module.vpc.vpc_id
+         tags = var.project_tags
+
 
   ingress {
-    description = "http from internet"
+    description = "http from alb sg"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -53,6 +58,7 @@ resource "aws_security_group" "rds_sg" {
   name        = "rds_sg"
   description = "rds_sg"
   vpc_id      = module.vpc.vpc_id
+         tags = var.project_tags
 
   ingress {
     description = "MySQL from asg_sg"

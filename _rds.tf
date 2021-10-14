@@ -36,10 +36,7 @@ module "db" {
   # disable backups to create DB faster
   backup_retention_period = 0
 
-  tags = {
-    Owner       = "user"
-    Environment = "dev"
-  }
+  tags = var.project_tags
 
   enabled_cloudwatch_logs_exports = ["audit", "general"]
 

@@ -15,6 +15,6 @@ module "vpc" {
   create_flow_log_cloudwatch_log_group = var.create_flow_log_cloudwatch_log_group
   create_flow_log_cloudwatch_iam_role  = var.create_flow_log_cloudwatch_iam_role
 
-  tags = var.vpc_tags
+  tags = var.project_tags
 }
 

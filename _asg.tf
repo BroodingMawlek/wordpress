@@ -56,9 +56,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
   tag_specifications {
     resource_type = "instance"
 
-    tags = {
-      Name = "wordpress_app_layer"
-    }
+      tags = var.project_tags
   }
 # Make sure bucket is correct install_wp.sh or wp-config.php will not copy
   user_data = filebase64("${path.module}/files/install_wp.sh")
