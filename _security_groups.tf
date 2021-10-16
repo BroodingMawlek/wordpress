@@ -7,7 +7,6 @@ resource "aws_security_group" "alb_sg" {
   vpc_id      = module.vpc.vpc_id
          tags = var.project_tags
 
-
   ingress {
     description = "http from internet"
     from_port   = 80
@@ -34,7 +33,6 @@ resource "aws_security_group" "asg_sg" {
   vpc_id      = module.vpc.vpc_id
          tags = var.project_tags
 
-
   ingress {
     description = "http from alb sg"
     from_port   = 80
@@ -49,6 +47,7 @@ resource "aws_security_group" "asg_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
 }
 
 # rds sg
