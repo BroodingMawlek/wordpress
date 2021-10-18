@@ -8,6 +8,7 @@ provider "aws" {
 terraform {
   required_version = ">= 0.12.21"
 
+
   backend "s3" {
     bucket = "state-byoi-822101501359"
     key    = "terraform-remote-state"

@@ -355,6 +355,7 @@ resource "aws_subnet" "public" {
 # Private subnet
 #################
 resource "aws_subnet" "private" {
+# create the vpc            if var.private_subnets  is greater than zero          if not  create none
   count = var.create_vpc && length(var.private_subnets) > 0 ? length(var.private_subnets) : 0
 
   vpc_id                          = local.vpc_id
