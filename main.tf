@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 terraform {
-  required_version = ">= 0.12.21"
+  required_version = ">= 1.0.9"
 
 
   backend "s3" {
