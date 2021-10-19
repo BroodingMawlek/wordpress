@@ -359,6 +359,7 @@ resource "aws_subnet" "private" {
   count = var.create_vpc && length(var.private_subnets) > 0 ? length(var.private_subnets) : 0
 
   vpc_id                          = local.vpc_id
+# Create a cidr block for every entry in the list .private_subnets
   cidr_block                      = var.private_subnets[count.index]
   availability_zone               = length(regexall("^[a-z]{2}-", element(var.azs, count.index))) > 0 ? element(var.azs, count.index) : null
   availability_zone_id            = length(regexall("^[a-z]{2}-", element(var.azs, count.index))) == 0 ? element(var.azs, count.index) : null
